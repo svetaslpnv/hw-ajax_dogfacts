@@ -89,27 +89,27 @@
                         throw new Error(response.statusText);
                     }
                     return response.json();
-                    })
-                    .then(data => {
-                        for (let i = 0; i < number; i ++) {
-                            let currentFact = document.createElement('div');
-                            currentFact.textContent = data.facts[i];
-                            let paw = document.createElement('i');
-                            paw.classList.add('fa-solid', 'fa-paw');
-                            let factWrapper = document.createElement('div');
-                            factWrapper.classList.add('fact-wrapper');
-                            factsBlock.appendChild(factWrapper);
-                            factWrapper.appendChild(paw);
-                            factWrapper.appendChild(currentFact);
-                        }
-                    }) 
-                    .catch((error) => {
-                        factsBlock.textContent = error.message;
-                    })
-                    .finally(() => {
-                        spinnerBlock.classList.add('spinner_hidden');
-                        button.removeAttribute('disabled');
-                        userInput.value = '';
+                })
+                .then(data => {
+                    for (let i = 0; i < number; i ++) {
+                        let currentFact = document.createElement('div');
+                        currentFact.textContent = data.facts[i];
+                        let paw = document.createElement('i');
+                        paw.classList.add('fa-solid', 'fa-paw');
+                        let factWrapper = document.createElement('div');
+                        factWrapper.classList.add('fact-wrapper');
+                        factsBlock.appendChild(factWrapper);
+                        factWrapper.appendChild(paw);
+                        factWrapper.appendChild(currentFact);
+                    }
+                }) 
+                .catch((error) => {
+                    factsBlock.textContent = error.message;
+                })
+                .finally(() => {
+                    spinnerBlock.classList.add('spinner_hidden');
+                    button.removeAttribute('disabled');
+                    userInput.value = '';
                 });
         });
     </script>
